@@ -6,4 +6,7 @@ services:
       - "80:80"
     volumes:
       - ./html:/usr/share/nginx/html:ro
+      - ./conf.d:/etc/nginx/conf.d
     command: [nginx, '-g', 'daemon off;']
+    extra_hosts:
+      - "nginxhost:${NGINX_HOST}"
